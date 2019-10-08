@@ -1,0 +1,6 @@
+framework module VideoCast {
+  umbrella header "VideoCast-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		70CE30128E1665F45BAB46E1 /* Pods_tencent_broadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AFAFFFEB60F582F96C67F7 /* Pods_tencent_broadcast.framework */; };
+		81B3556E234C4BAD0040B26D /* BeautySettingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3556D234C4BAD0040B26D /* BeautySettingPanel.swift */; };
+		81B35570234C4C900040B26D /* BeautySettingPanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3556F234C4C900040B26D /* BeautySettingPanelDelegate.swift */; };
+		81B35572234C4D860040B26D /* BeautyLoadPituDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */; };
+		81B35574234C60850040B26D /* PituMotionAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35573234C60850040B26D /* PituMotionAddress.swift */; };
+		81B35576234C66680040B26D /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35575234C66680040B26D /* TextCell.swift */; };
+		81C0CF1E2347250B00A025D7 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C0CF1D2347250B00A025D7 /* TXLiteAVSDK_Professional.framework */; };
+		81C0CF2223472A4700A025D7 /* TencentSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF2123472A4700A025D7 /* TencentSource.swift */; };
+		81C0CF242347354700A025D7 /* TencentVideoProcessCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */; };
+		81C0CF26234743F200A025D7 /* TencentCustomProcessFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */; };
+		81C0CF2823476FEF00A025D7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C0CF2723476FD300A025D7 /* libsqlite3.tbd */; };
+		81C0CF2C2347703A00A025D7 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C0CF2B2347702700A025D7 /* libresolv.tbd */; };
+		81D1962B2346FE7C003986A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1962A2346FE7C003986A9 /* AppDelegate.swift */; };
+		81D1962D2346FE7C003986A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1962C2346FE7C003986A9 /* SceneDelegate.swift */; };
+		81D1962F2346FE7C003986A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1962E2346FE7C003986A9 /* ViewController.swift */; };
+		81D196322346FE7C003986A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D196302346FE7C003986A9 /* Main.storyboard */; };
+		81D196342346FE7F003986A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D196332346FE7F003986A9 /* Assets.xcassets */; };
+		81D196372346FE7F003986A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D196352346FE7F003986A9 /* LaunchScreen.storyboard */; };
+		81D196422346FE80003986A9 /* tencent_broadcastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D196412346FE80003986A9 /* tencent_broadcastTests.swift */; };
+		81D1964D23470332003986A9 /* BroadcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1964C23470332003986A9 /* BroadcastsViewController.swift */; };
+		81D1964F23470376003986A9 /* OptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1964E23470376003986A9 /* OptionsModel.swift */; };
+		81D196512347039C003986A9 /* OptionsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D196502347039C003986A9 /* OptionsUtil.swift */; };
+		81D19653234703C6003986A9 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D19652234703C6003986A9 /* OptionsViewController.swift */; };
+		81D19655234703E9003986A9 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D19654234703E9003986A9 /* SelectViewController.swift */; };
+		81D196572347040D003986A9 /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D196562347040D003986A9 /* ServerModel.swift */; };
+		81D196592347042F003986A9 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D196582347042F003986A9 /* ServerViewController.swift */; };
+		81D1965B23470455003986A9 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1965A23470455003986A9 /* TextFieldCell.swift */; };
+		81D1965D23470499003986A9 /* TencentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1965C23470499003986A9 /* TencentSession.swift */; };
+		81D1965F234704E4003986A9 /* TencentSessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1965E234704E4003986A9 /* TencentSessionImpl.swift */; };
+		81D196612347050D003986A9 /* TencentSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D196602347050D003986A9 /* TencentSessionDelegate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81D1963E2346FE80003986A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81D1961F2346FE7C003986A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81D196262346FE7C003986A9;
+			remoteInfo = "tencent-broadcast";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2189A93F03AC4A28C71BE4BB /* Pods-tencent-broadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tencent-broadcast.debug.xcconfig"; path = "Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast.debug.xcconfig"; sourceTree = "<group>"; };
+		7DF982D6A66D38E83DD33977 /* Pods-tencent-broadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tencent-broadcast.release.xcconfig"; path = "Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast.release.xcconfig"; sourceTree = "<group>"; };
+		8152998B234B003600499C9D /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = SDK/GPUImage.framework; sourceTree = "<group>"; };
+		81B3556D234C4BAD0040B26D /* BeautySettingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautySettingPanel.swift; sourceTree = "<group>"; };
+		81B3556F234C4C900040B26D /* BeautySettingPanelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautySettingPanelDelegate.swift; sourceTree = "<group>"; };
+		81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyLoadPituDelegate.swift; sourceTree = "<group>"; };
+		81B35573234C60850040B26D /* PituMotionAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PituMotionAddress.swift; sourceTree = "<group>"; };
+		81B35575234C66680040B26D /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		81C0CF1D2347250B00A025D7 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
+		81C0CF2123472A4700A025D7 /* TencentSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentSource.swift; sourceTree = "<group>"; };
+		81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentVideoProcessCallback.swift; sourceTree = "<group>"; };
+		81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentCustomProcessFilter.swift; sourceTree = "<group>"; };
+		81C0CF2723476FD300A025D7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		81C0CF292347701300A025D7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		81C0CF2B2347702700A025D7 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		81D196272346FE7C003986A9 /* tencent-broadcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tencent-broadcast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D1962A2346FE7C003986A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81D1962C2346FE7C003986A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		81D1962E2346FE7C003986A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81D196312346FE7C003986A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81D196332346FE7F003986A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81D196362346FE7F003986A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81D196382346FE7F003986A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D1963D2346FE80003986A9 /* tencent-broadcastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tencent-broadcastTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D196412346FE80003986A9 /* tencent_broadcastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tencent_broadcastTests.swift; sourceTree = "<group>"; };
+		81D196432346FE80003986A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D1964C23470332003986A9 /* BroadcastsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastsViewController.swift; sourceTree = "<group>"; };
+		81D1964E23470376003986A9 /* OptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModel.swift; sourceTree = "<group>"; };
+		81D196502347039C003986A9 /* OptionsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsUtil.swift; sourceTree = "<group>"; };
+		81D19652234703C6003986A9 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		81D19654234703E9003986A9 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		81D196562347040D003986A9 /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
+		81D196582347042F003986A9 /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
+		81D1965A23470455003986A9 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		81D1965C23470499003986A9 /* TencentSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentSession.swift; sourceTree = "<group>"; };
+		81D1965E234704E4003986A9 /* TencentSessionImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentSessionImpl.swift; sourceTree = "<group>"; };
+		81D196602347050D003986A9 /* TencentSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentSessionDelegate.swift; sourceTree = "<group>"; };
+		D9AFAFFFEB60F582F96C67F7 /* Pods_tencent_broadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tencent_broadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81D196242346FE7C003986A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C0CF2823476FEF00A025D7 /* libsqlite3.tbd in Frameworks */,
+				70CE30128E1665F45BAB46E1 /* Pods_tencent_broadcast.framework in Frameworks */,
+				81C0CF2C2347703A00A025D7 /* libresolv.tbd in Frameworks */,
+				81C0CF1E2347250B00A025D7 /* TXLiteAVSDK_Professional.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D1963A2346FE80003986A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B8E19E6767DD0FC407FF096 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2189A93F03AC4A28C71BE4BB /* Pods-tencent-broadcast.debug.xcconfig */,
+				7DF982D6A66D38E83DD33977 /* Pods-tencent-broadcast.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		81D1961E2346FE7C003986A9 = {
+			isa = PBXGroup;
+			children = (
+				81D196292346FE7C003986A9 /* tencent-broadcast */,
+				81D196402346FE80003986A9 /* tencent-broadcastTests */,
+				81D196282346FE7C003986A9 /* Products */,
+				3B8E19E6767DD0FC407FF096 /* Pods */,
+				BEF7335405B7103EDB50D92F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		81D196282346FE7C003986A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81D196272346FE7C003986A9 /* tencent-broadcast.app */,
+				81D1963D2346FE80003986A9 /* tencent-broadcastTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81D196292346FE7C003986A9 /* tencent-broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				81D1962A2346FE7C003986A9 /* AppDelegate.swift */,
+				81D196332346FE7F003986A9 /* Assets.xcassets */,
+				81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */,
+				81B3556D234C4BAD0040B26D /* BeautySettingPanel.swift */,
+				81B3556F234C4C900040B26D /* BeautySettingPanelDelegate.swift */,
+				81D1964C23470332003986A9 /* BroadcastsViewController.swift */,
+				81D196382346FE7F003986A9 /* Info.plist */,
+				81D196352346FE7F003986A9 /* LaunchScreen.storyboard */,
+				81D196302346FE7C003986A9 /* Main.storyboard */,
+				81D1964E23470376003986A9 /* OptionsModel.swift */,
+				81D196502347039C003986A9 /* OptionsUtil.swift */,
+				81D19652234703C6003986A9 /* OptionsViewController.swift */,
+				81B35573234C60850040B26D /* PituMotionAddress.swift */,
+				81D1962C2346FE7C003986A9 /* SceneDelegate.swift */,
+				81D19654234703E9003986A9 /* SelectViewController.swift */,
+				81D196562347040D003986A9 /* ServerModel.swift */,
+				81D196582347042F003986A9 /* ServerViewController.swift */,
+				81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */,
+				81D1965C23470499003986A9 /* TencentSession.swift */,
+				81D196602347050D003986A9 /* TencentSessionDelegate.swift */,
+				81D1965E234704E4003986A9 /* TencentSessionImpl.swift */,
+				81C0CF2123472A4700A025D7 /* TencentSource.swift */,
+				81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */,
+				81B35575234C66680040B26D /* TextCell.swift */,
+				81D1965A23470455003986A9 /* TextFieldCell.swift */,
+				81D1962E2346FE7C003986A9 /* ViewController.swift */,
+			);
+			path = "tencent-broadcast";
+			sourceTree = "<group>";
+		};
+		81D196402346FE80003986A9 /* tencent-broadcastTests */ = {
+			isa = PBXGroup;
+			children = (
+				81D196412346FE80003986A9 /* tencent_broadcastTests.swift */,
+				81D196432346FE80003986A9 /* Info.plist */,
+			);
+			path = "tencent-broadcastTests";
+			sourceTree = "<group>";
+		};
+		BEF7335405B7103EDB50D92F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8152998B234B003600499C9D /* GPUImage.framework */,
+				81C0CF2B2347702700A025D7 /* libresolv.tbd */,
+				81C0CF292347701300A025D7 /* libc++.tbd */,
+				81C0CF2723476FD300A025D7 /* libsqlite3.tbd */,
+				81C0CF1D2347250B00A025D7 /* TXLiteAVSDK_Professional.framework */,
+				D9AFAFFFEB60F582F96C67F7 /* Pods_tencent_broadcast.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81D196262346FE7C003986A9 /* tencent-broadcast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D196462346FE80003986A9 /* Build configuration list for PBXNativeTarget "tencent-broadcast" */;
+			buildPhases = (
+				3C1B99314CD182C45306F647 /* [CP] Check Pods Manifest.lock */,
+				81D196232346FE7C003986A9 /* Sources */,
+				81B35579234CB28A0040B26D /* Run Script */,
+				81D196242346FE7C003986A9 /* Frameworks */,
+				81D196252346FE7C003986A9 /* Resources */,
+				E0C6DF61F2DE4CCC7A325A92 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tencent-broadcast";
+			productName = "tencent-broadcast";
+			productReference = 81D196272346FE7C003986A9 /* tencent-broadcast.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81D1963C2346FE80003986A9 /* tencent-broadcastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D196492346FE80003986A9 /* Build configuration list for PBXNativeTarget "tencent-broadcastTests" */;
+			buildPhases = (
+				81D196392346FE80003986A9 /* Sources */,
+				81D1963A2346FE80003986A9 /* Frameworks */,
+				81D1963B2346FE80003986A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81D1963F2346FE80003986A9 /* PBXTargetDependency */,
+			);
+			name = "tencent-broadcastTests";
+			productName = "tencent-broadcastTests";
+			productReference = 81D1963D2346FE80003986A9 /* tencent-broadcastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81D1961F2346FE7C003986A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = CyberAgent;
+				TargetAttributes = {
+					81D196262346FE7C003986A9 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					81D1963C2346FE80003986A9 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 81D196262346FE7C003986A9;
+					};
+				};
+			};
+			buildConfigurationList = 81D196222346FE7C003986A9 /* Build configuration list for PBXProject "tencent-broadcast" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81D1961E2346FE7C003986A9;
+			productRefGroup = 81D196282346FE7C003986A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81D196262346FE7C003986A9 /* tencent-broadcast */,
+				81D1963C2346FE80003986A9 /* tencent-broadcastTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81D196252346FE7C003986A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D196372346FE7F003986A9 /* LaunchScreen.storyboard in Resources */,
+				81D196342346FE7F003986A9 /* Assets.xcassets in Resources */,
+				81D196322346FE7C003986A9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D1963B2346FE80003986A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C1B99314CD182C45306F647 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tencent-broadcast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81B35579234CB28A0040B26D /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		E0C6DF61F2DE4CCC7A325A92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81D196232346FE7C003986A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C0CF242347354700A025D7 /* TencentVideoProcessCallback.swift in Sources */,
+				81D1965F234704E4003986A9 /* TencentSessionImpl.swift in Sources */,
+				81D196572347040D003986A9 /* ServerModel.swift in Sources */,
+				81D1964F23470376003986A9 /* OptionsModel.swift in Sources */,
+				81D1965B23470455003986A9 /* TextFieldCell.swift in Sources */,
+				81D1962F2346FE7C003986A9 /* ViewController.swift in Sources */,
+				81D1965D23470499003986A9 /* TencentSession.swift in Sources */,
+				81D196592347042F003986A9 /* ServerViewController.swift in Sources */,
+				81B35570234C4C900040B26D /* BeautySettingPanelDelegate.swift in Sources */,
+				81D196512347039C003986A9 /* OptionsUtil.swift in Sources */,
+				81B35576234C66680040B26D /* TextCell.swift in Sources */,
+				81B35574234C60850040B26D /* PituMotionAddress.swift in Sources */,
+				81B35572234C4D860040B26D /* BeautyLoadPituDelegate.swift in Sources */,
+				81D19653234703C6003986A9 /* OptionsViewController.swift in Sources */,
+				81C0CF26234743F200A025D7 /* TencentCustomProcessFilter.swift in Sources */,
+				81D19655234703E9003986A9 /* SelectViewController.swift in Sources */,
+				81D1962B2346FE7C003986A9 /* AppDelegate.swift in Sources */,
+				81D1964D23470332003986A9 /* BroadcastsViewController.swift in Sources */,
+				81D1962D2346FE7C003986A9 /* SceneDelegate.swift in Sources */,
+				81C0CF2223472A4700A025D7 /* TencentSource.swift in Sources */,
+				81D196612347050D003986A9 /* TencentSessionDelegate.swift in Sources */,
+				81B3556E234C4BAD0040B26D /* BeautySettingPanel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D196392346FE80003986A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D196422346FE80003986A9 /* tencent_broadcastTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81D1963F2346FE80003986A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81D196262346FE7C003986A9 /* tencent-broadcast */;
+			targetProxy = 81D1963E2346FE80003986A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		81D196302346FE7C003986A9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D196312346FE7C003986A9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81D196352346FE7F003986A9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D196362346FE7F003986A9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81D196442346FE80003986A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		81D196452346FE80003986A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81D196472346FE80003986A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2189A93F03AC4A28C71BE4BB /* Pods-tencent-broadcast.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5PN926HWK3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK",
+				);
+				INFOPLIST_FILE = "tencent-broadcast/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.cyberagent.matsuzawa.tomohiro.tencent-broadcast";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81D196482346FE80003986A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DF982D6A66D38E83DD33977 /* Pods-tencent-broadcast.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5PN926HWK3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK",
+				);
+				INFOPLIST_FILE = "tencent-broadcast/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.cyberagent.matsuzawa.tomohiro.tencent-broadcast";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = all;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		81D1964A2346FE80003986A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "tencent-broadcastTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.cyberagent.matsuzawa.tomohiro.tencent-broadcastTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tencent-broadcast.app/tencent-broadcast";
+			};
+			name = Debug;
+		};
+		81D1964B2346FE80003986A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "tencent-broadcastTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.cyberagent.matsuzawa.tomohiro.tencent-broadcastTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tencent-broadcast.app/tencent-broadcast";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81D196222346FE7C003986A9 /* Build configuration list for PBXProject "tencent-broadcast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D196442346FE80003986A9 /* Debug */,
+				81D196452346FE80003986A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D196462346FE80003986A9 /* Build configuration list for PBXNativeTarget "tencent-broadcast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D196472346FE80003986A9 /* Debug */,
+				81D196482346FE80003986A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D196492346FE80003986A9 /* Build configuration list for PBXNativeTarget "tencent-broadcastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D1964A2346FE80003986A9 /* Debug */,
+				81D1964B2346FE80003986A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81D1961F2346FE7C003986A9 /* Project object */;
+}
