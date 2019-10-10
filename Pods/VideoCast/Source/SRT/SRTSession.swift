@@ -119,7 +119,7 @@ open class SRTSession: IOutputSession {
     // swiftlint:disable:next function_body_length cyclomatic_complexity
     open func pushBuffer(_ data: UnsafeRawPointer, size: Int, metadata: IMetaData) {
         guard !ending.value else { return }
-        assert(size % 188 == 0)
+        assert (size % 188 == 0)
 
         var len = size
         var offset = 0

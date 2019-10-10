@@ -6,7 +6,6 @@
 //  Copyright © 2018年 CyberAgent, Inc. All rights reserved.
 //
 
-#if !targetEnvironment(simulator) && !arch(arm)
 import Foundation
 import GLKit
 import Metal
@@ -28,6 +27,5 @@ class DeviceManager {
     static var sharedManager = DeviceManager()
 
     lazy var device: MTLDevice = { return MTLCreateSystemDefaultDevice()! }()
-    lazy var commandQueue: MTLCommandQueue = { return device.makeCommandQueue()! }()
+    lazy var commandQueue: MTLCommandQueue = { return device.makeCommandQueue()! } ()
 }
-#endif

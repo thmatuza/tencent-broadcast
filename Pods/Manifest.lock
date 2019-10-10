@@ -29,7 +29,7 @@ DEPENDENCIES:
   - ZipArchive
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - MBProgressHUD
     - SwiftLint
@@ -46,7 +46,7 @@ CHECKOUT OPTIONS:
     :commit: 167b0389bc6e9dc4bb0121550f91d8d5d6412c53
     :git: https://github.com/BradLarson/GPUImage.git
   VideoCast:
-    :commit: c364e064c01015fbc5e5ba4cfb02741796aa8dc4
+    :commit: 1335ba6a107509eb6d59036444991cd22b4e034c
     :git: https://github.com/cats-oss/VideoCast-Swift.git
 
 SPEC CHECKSUMS:
@@ -59,4 +59,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5dac132c24365d53bfcaa2142add5eeae15e23b8
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
