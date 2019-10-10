@@ -97,6 +97,15 @@ class ViewController: UIViewController {
             }
         }
 
+        delegate.didAddCameraSource = { [weak self] session in
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+
+                strongSelf.initUI()
+                strongSelf.vBeauty.resetValues()
+            }
+        }
+
         delegate.detectedThroughput = { [weak self] throughputInBytesPerSecond, videorate, oBitrate in
             guard let strongSelf = self else { return }
             let bitrateText = """
@@ -119,9 +128,6 @@ class ViewController: UIViewController {
         btnFlash.setImage(imgFlashOff, for: .normal)
         btnFlash.setImage(imgFlashOn, for: [.normal, .selected])
         updateFlashBtn()
-
-        initUI()
-        vBeauty.resetValues()
     }
 
     override func didReceiveMemoryWarning() {

@@ -266,7 +266,7 @@ class BeautySettingPanel: UIView {
             let beautyIndex = selectedIndexPathForMenu(.beauty).item
 
             beautyValueMap[beautyIndex] = beautySlider.value
-            beautyLabel.text = String(format: "%d", beautySlider.value)
+            beautyLabel.text = "\(Int(beautySlider.value))"
 
             if beautyIndex <= BeautyMenuItem.lastBeautyValueItem {
                 if beautyIndex <= BeautyMenuItem.lastBeautyTypeItem {
@@ -315,8 +315,10 @@ class BeautySettingPanel: UIView {
 
     private func onSetMotionWithIndex(_ index: Int) {
         if let delegate = delegate {
-            let localPackageDir =
-                URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("Documents/packages").absoluteString
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let documentsDirectory = paths[0]
+            let docURL = URL(string: documentsDirectory)!
+            let localPackageDir = docURL.appendingPathComponent("packages").absoluteString
             if !FileManager.default.fileExists(atPath: localPackageDir) {
                 try! FileManager.default.createDirectory(atPath: localPackageDir, withIntermediateDirectories: false, attributes: nil)
             }
@@ -337,8 +339,10 @@ class BeautySettingPanel: UIView {
 
     private func onSetKoubeiWithIndex(_ index: Int) {
         if let delegate = delegate {
-            let localPackageDir =
-                URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("Documents/packages").absoluteString
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let documentsDirectory = paths[0]
+            let docURL = URL(string: documentsDirectory)!
+            let localPackageDir = docURL.appendingPathComponent("packages").absoluteString
             if !FileManager.default.fileExists(atPath: localPackageDir) {
                 try! FileManager.default.createDirectory(atPath: localPackageDir, withIntermediateDirectories: false, attributes: nil)
             }
@@ -727,7 +731,7 @@ extension BeautySettingPanel: UICollectionViewDelegate, UICollectionViewDataSour
             setSelectedIndexPath(indexPath)
             switch currentMenuIndex {
             case .beauty:
-                let value = beautyValueMap[indexPath.row]!
+                let value = beautyValueMap[indexPath.row] ?? 0
 
                 if indexPath.row < 3 {
                     beautyStyle = PanelBeautyStyle(rawValue: indexPath.item)!
@@ -742,7 +746,7 @@ extension BeautySettingPanel: UICollectionViewDelegate, UICollectionViewDataSour
                     beautySlider.minimumValue = 0
                     beautySlider.maximumValue = 10
                 }
-                beautyLabel.text = "\(value)"
+                beautyLabel.text = "\(Int(value))"
                 beautySlider.setValue(value, animated: false)
                 applyBeautySettings()
             case .filter:
