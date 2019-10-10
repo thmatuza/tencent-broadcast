@@ -61,6 +61,7 @@ open class TencentSession {
     private var _micGain: Float = 1
     var _cameraState: VCCameraState
     var _mirrorPreview = true
+    var preViewContainer: UIView?
 
     open var sessionState = VCSessionState.none {
         didSet {
@@ -103,9 +104,11 @@ open class TencentSession {
         get { return _cameraState }
         set {
             if _cameraState != newValue {
-                _cameraState = newValue
                 cameraSource?.toggleCamera()
-                updatePreview()
+                _cameraState = newValue
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.updatePreview()
+                }
             }
         }
     }
@@ -208,12 +211,11 @@ open class TencentSession {
         }
     }
 
-    let screencast: Bool
-
     // swiftlint:disable:next weak_delegate
     public let delegate: TencentSessionDelegate
 
     public init(
+        preViewContainer: UIView?,
         videoSize: CGSize,
         frameRate fps: Int,
         bitrate bps: Int,
@@ -221,16 +223,15 @@ open class TencentSession {
         useInterfaceOrientation: Bool = false,
         cameraState: VCCameraState = .back,
         aspectMode: VCAspectMode = .fit,
-        screencast: Bool = false,
         delegate: TencentSessionDelegate = .init()) {
         self.delegate = delegate
 
+        self.preViewContainer = preViewContainer
         self.bitrate = bps
         self.fps = fps
         self.keyframeInterval = fps * 2 // default 2 sec
         self.videoCodecType = videoCodecType
         self.useInterfaceOrientation = useInterfaceOrientation
-        self.screencast = screencast
 
         self.previewView = .init()
 
@@ -322,9 +323,7 @@ open class TencentSession {
     }
 
     open func getCameraPreviewLayer(_ previewLayer: inout AVCaptureVideoPreviewLayer) {
-        if let cameraSource = cameraSource {
-            cameraSource.getPreviewLayer(&previewLayer)
-        }
+        assertionFailure("unsupported getCameraPreviewLayer")
     }
 
     open func addPixelBufferSource(image: UIImage, rect: CGRect, aspectMode: VCAspectMode = .fit) {
@@ -356,6 +355,18 @@ open class TencentSession {
 }
 
 extension TencentSession {
+    func setOrientation(_ portrait: Bool) {
+        cameraSource?.setOrientation(portrait)
+    }
+
+    func setLogViewMargin(_ margin: UIEdgeInsets) {
+        cameraSource?.setLogViewMargin(margin)
+    }
+
+    func showVideoDebugLog(_ isShow: Bool) {
+        cameraSource?.showVideoDebugLog(isShow)
+    }
+
     func setBeautyStyle(_ beautyStyle: Int, beautyLevel: Float, whitenessLevel: Float, ruddinessLevel: Float) {
         cameraSource?.setBeautyStyle(beautyStyle,
                                      beautyLevel: beautyLevel,

@@ -11,9 +11,17 @@ import VideoCast
 import TXLiteAVSDK_Professional
 import GPUImage
 
+enum HomeOrientation: Int32 {
+    case right = 0
+    case down
+    case left
+    case up
+}
+
 class TencentSource: ISource {
     var filter: IFilter?
     var orientationLocked: Bool = false
+    var deviceOrientation: UIDeviceOrientation = .portrait
 
     private var matrix: GLKMatrix4 = GLKMatrix4Identity
 
@@ -25,9 +33,10 @@ class TencentSource: ISource {
 
     private var fps: Int = 0
 
-    private var preViewContainer: UIView?
-
     private var txLivePublisher: TXLivePush?
+    private var isFlash = false
+
+    private var preViewContainer: UIView?
 
     public init() {
     }
@@ -49,10 +58,7 @@ class TencentSource: ISource {
         self.audioOutput = output
     }
 
-    func getPreviewLayer(_ outAVCaptureVideoPreviewLayer: inout AVCaptureVideoPreviewLayer) {
-    }
-
-    func setupCamera(fps: Int = 15, useFront: Bool = true,
+    func setupCamera(preViewContainer: UIView?, fps: Int = 15, useFront: Bool = true,
                      useInterfaceOrientation: Bool = false) {
         let config = TXLivePushConfig()
         config.videoFPS = Int32(fps)
@@ -61,48 +67,104 @@ class TencentSource: ISource {
         syncSafe {
             let txLivePublisher = TXLivePush(config: config)
 
-            callbackSession = .init()
-            callbackSession?.source = self
+            let callbackSession: TencentVideoProcessCallback = .init()
+            callbackSession.source = self
             txLivePublisher?.videoProcessDelegate = callbackSession
+            self.callbackSession = callbackSession
+            
+            if !orientationLocked {
+                NotificationCenter.default.addObserver(
+                    callbackSession,
+                    selector:
+                    #selector(type(of: callbackSession).orientationChanged(notification:)),
+                    name: UIApplication.didChangeStatusBarOrientationNotification,
+                    object: nil)
+            }
 
             // AudioProcessDelegate doesn't work yet
             audioCallbackSession = .init()
             audioCallbackSession?.source = self
             txLivePublisher?.audioProcessDelegate = audioCallbackSession
 
-            preViewContainer = UIView(frame: CGRect(x: 0, y: 0, width: 720, height: 1280))
-
-            txLivePublisher?.startPreview(preViewContainer)
-            txLivePublisher?.showVideoDebugLog(true)
-
+            if preViewContainer == nil {
+                self.preViewContainer = UIView(frame: CGRect(x: 0, y: 0, width: 720, height: 1280))
+            } else {
+                self.preViewContainer = preViewContainer
+            }
+            txLivePublisher?.startPreview(self.preViewContainer)
             self.txLivePublisher = txLivePublisher
         }
     }
 
     func toggleCamera() {
+        txLivePublisher?.switchCamera()
     }
 
     func setTorch(_ torchOn: Bool) -> Bool {
-        return false
+        guard let txLivePublisher = txLivePublisher else {
+            return false
+        }
+        let ret = txLivePublisher.toggleTorch(torchOn)
+        if ret {
+            isFlash = torchOn
+        }
+        return isFlash
+    }
+    
+    func setOrientation(_ portrait: Bool) {
+        guard let txLivePublisher = txLivePublisher else {
+            return
+        }
+
+        if portrait {
+            if let config = txLivePublisher.config {
+                config.homeOrientation = HomeOrientation.down.rawValue
+                txLivePublisher.config = config
+                
+                txLivePublisher.setRenderRotation(0)
+            }
+        } else {
+            if let config = txLivePublisher.config {
+                config.homeOrientation = HomeOrientation.right.rawValue
+                txLivePublisher.config = config
+                
+                txLivePublisher.setRenderRotation(90)
+            }
+        }
+    }
+
+    func setLogViewMargin(_ margin: UIEdgeInsets) {
+        txLivePublisher?.setLogViewMargin(margin)
+    }
+
+    func showVideoDebugLog(_ isShow: Bool) {
+        txLivePublisher?.showVideoDebugLog(isShow)
     }
 
     @discardableResult
     func setFocusPointOfInterest(x: Float, y: Float) -> Bool {
+        guard let txLivePublisher = txLivePublisher else {
+            return false
+        }
+        txLivePublisher.setFocusPosition(CGPoint(x: CGFloat(x), y: CGFloat(y)))
+        return true
+    }
+
+    @discardableResult
+    func setContinuousAutofocus(_ wantsContinuous: Bool) -> Bool {
+        Logger.warn("unsupport setContinuousAutofocus")
         return false
     }
 
     @discardableResult
-    open func setContinuousAutofocus(_ wantsContinuous: Bool) -> Bool {
+    func setExposurePointOfInterest(x: Float, y: Float) -> Bool {
+        Logger.warn("unsupport setExposurePointOfInterest")
         return false
     }
 
     @discardableResult
-    open func setExposurePointOfInterest(x: Float, y: Float) -> Bool {
-        return false
-    }
-
-    @discardableResult
-    open func setContinuousExposure(_ wantsContinuous: Bool) -> Bool {
+    func setContinuousExposure(_ wantsContinuous: Bool) -> Bool {
+        Logger.warn("unsupport setContinuousExposure")
         return false
     }
 
@@ -141,6 +203,43 @@ class TencentSource: ISource {
         data.withUnsafeBytes {
             output.pushBuffer($0.baseAddress!, size: data.count, metadata: md)
         }*/
+    }
+    
+    func reorientCamera() {
+        guard let txLivePublisher = txLivePublisher else {
+            return
+        }
+        switch UIDevice.current.orientation {
+        case .portrait:
+            if deviceOrientation != .portrait {
+                if let config = txLivePublisher.config {
+                    config.homeOrientation = HomeOrientation.down.rawValue
+                    txLivePublisher.config = config
+                    txLivePublisher.setRenderRotation(0)
+                    deviceOrientation = .portrait
+                }
+            }
+        case .landscapeLeft:
+            if deviceOrientation != .landscapeLeft {
+                if let config = txLivePublisher.config {
+                    config.homeOrientation = HomeOrientation.right.rawValue
+                    txLivePublisher.config = config
+                    txLivePublisher.setRenderRotation(0)
+                    deviceOrientation = .landscapeLeft
+                }
+            }
+        case .landscapeRight:
+            if deviceOrientation != .landscapeRight {
+                if let config = txLivePublisher.config {
+                    config.homeOrientation = HomeOrientation.left.rawValue
+                    txLivePublisher.config = config
+                    txLivePublisher.setRenderRotation(0)
+                    deviceOrientation = .landscapeRight
+                }
+            }
+        default:
+            break
+        }
     }
 }
 

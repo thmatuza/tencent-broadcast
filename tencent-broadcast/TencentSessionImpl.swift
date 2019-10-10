@@ -56,7 +56,7 @@ extension TencentSession {
 
         self.videoSplit = videoSplit
 
-        if !screencast {
+        if preViewContainer == nil {
             let pbOutput = PixelBufferOutput(callback: { [weak self, previewView] (data: UnsafeRawPointer, _: Int)  in
                 guard let strongSelf = self else { return }
 
@@ -75,106 +75,54 @@ extension TencentSession {
         videoMixer?.setOutput(videoSplit)
 
         // Create sources
-        if screencast {
-            let videoSampleSource = VideoSampleSource()
-            self.videoSampleSource = videoSampleSource
-            let aspectTransform = AspectTransform(boundingWidth: Int(videoSize.width),
-                                                  boundingHeight: Int(videoSize.height), aspectMode: atAspectMode)
+        // Add camera source
+        let cameraSource = TencentSource()
+        self.cameraSource = cameraSource
+        cameraSource.orientationLocked = orientationLocked
+        let aspectTransform = AspectTransform(boundingWidth: Int(videoSize.width),
+                                              boundingHeight: Int(videoSize.height), aspectMode: atAspectMode)
 
-            let positionTransform = PositionTransform(
-                x: Int(videoSize.width / 2), y: Int(videoSize.height / 2),
-                width: Int(Float(videoSize.width) * videoZoomFactor),
-                height: Int(Float(videoSize.height) * videoZoomFactor),
-                contextWidth: Int(videoSize.width), contextHeight: Int(videoSize.height)
-            )
+        let positionTransform = PositionTransform(
+            x: Int(videoSize.width / 2), y: Int(videoSize.height / 2),
+            width: Int(Float(videoSize.width) * videoZoomFactor),
+            height: Int(Float(videoSize.height) * videoZoomFactor),
+            contextWidth: Int(videoSize.width), contextHeight: Int(videoSize.height)
+        )
 
-            self.videoSampleSource?.setOutput(aspectTransform)
+        let useFront = cameraState == .front
+        cameraSource.setupCamera(preViewContainer: preViewContainer, fps: fps, useFront: useFront,
+                                 useInterfaceOrientation: useInterfaceOrientation)
+        self.cameraSource?.setContinuousAutofocus(true)
+        self.cameraSource?.setContinuousExposure(true)
 
-            guard let videoMixer = self.videoMixer else { return Logger.debug("unexpected return") }
-            let filter = BasicVideoFilterBGRA()
+        self.cameraSource?.setVideoOutput(aspectTransform)
 
-            let delay = TimeInterval(0.5)
+        guard let videoMixer = self.videoMixer else {
+            return Logger.debug("unexpected return") }
+        let filter = BasicVideoFilterBGRA()
 
-            videoMixer.setSourceFilter(WeakRefISource(value: videoSampleSource), filter: filter)
-            self.filter = filter
-            aspectTransform.setOutput(positionTransform)
-            positionTransform.setOutput(videoMixer)
-            self.aspectTransform = aspectTransform
-            self.positionTransform = positionTransform
+        videoMixer.setSourceFilter(WeakRefISource(value: cameraSource), filter: filter)
+        self.filter = filter
+        aspectTransform.setOutput(positionTransform)
+        positionTransform.setOutput(videoMixer)
+        self.aspectTransform = aspectTransform
+        self.positionTransform = positionTransform
 
-            // Add audio source
-            let audioAppSampleSource = AudioSampleSource()
-            self.audioAppSampleSource = audioAppSampleSource
-            let audioAppSampleSmoother = Smoother(delay: delay)
-            self.audioAppSampleSmoother = audioAppSampleSmoother
+        // Inform delegate that camera source has been added
+        self.delegate.didAddCameraSource?(self)
 
-            let audioMicSampleSource = AudioSampleSource()
-            self.audioMicSampleSource = audioMicSampleSource
-            let audioMicSampleSmoother = Smoother(delay: delay)
-            self.audioMicSampleSmoother = audioMicSampleSmoother
-
-            audioAppSampleSource.setOutput(audioAppSampleSmoother)
-            audioAppSampleSmoother.setOutput(audioMixer)
-            audioMixer.registerSource(audioAppSampleSource)
-
-            audioMicSampleSource.setOutput(audioMicSampleSmoother)
-            audioMicSampleSmoother.setOutput(audioMixer)
-            audioMixer.registerSource(audioMicSampleSource)
-
-            audioAppSampleSmoother.start()
-            audioMicSampleSmoother.start()
-
-            videoMixer.setDelay(delay: delay)
-        } else {
-            // Add camera source
-            let cameraSource = TencentSource()
-            self.cameraSource = cameraSource
-            cameraSource.orientationLocked = orientationLocked
-            let aspectTransform = AspectTransform(boundingWidth: Int(videoSize.width),
-                                                  boundingHeight: Int(videoSize.height), aspectMode: atAspectMode)
-
-            let positionTransform = PositionTransform(
-                x: Int(videoSize.width / 2), y: Int(videoSize.height / 2),
-                width: Int(Float(videoSize.width) * videoZoomFactor),
-                height: Int(Float(videoSize.height) * videoZoomFactor),
-                contextWidth: Int(videoSize.width), contextHeight: Int(videoSize.height)
-            )
-
-            let useFront = cameraState == .front
-            cameraSource.setupCamera(fps: fps, useFront: useFront,
-                                     useInterfaceOrientation: useInterfaceOrientation)
-            self.cameraSource?.setContinuousAutofocus(true)
-            self.cameraSource?.setContinuousExposure(true)
-
-            self.cameraSource?.setVideoOutput(aspectTransform)
-
-            guard let videoMixer = self.videoMixer else {
-                return Logger.debug("unexpected return") }
-            let filter = BasicVideoFilterBGRA()
-
-            videoMixer.setSourceFilter(WeakRefISource(value: cameraSource), filter: filter)
-            self.filter = filter
-            aspectTransform.setOutput(positionTransform)
-            positionTransform.setOutput(videoMixer)
-            self.aspectTransform = aspectTransform
-            self.positionTransform = positionTransform
-
-            // Inform delegate that camera source has been added
-            self.delegate.didAddCameraSource?(self)
-
-            // Add mic source
-            micSource = MicSource(sampleRate: Double(audioSampleRate), preferedChannelCount: audioChannelCount)
-            micSource?.setOutput(audioMixer)
-            self.cameraSource?.setAudioOutput(audioMixer)
-        }
+        // Add mic source
+        micSource = MicSource(sampleRate: Double(audioSampleRate), preferedChannelCount: audioChannelCount)
+        micSource?.setOutput(audioMixer)
+        self.cameraSource?.setAudioOutput(audioMixer)
 
         let epoch = Date()
 
         audioMixer.setEpoch(epoch)
-        videoMixer?.setEpoch(epoch)
+        videoMixer.setEpoch(epoch)
 
         audioMixer.start()
-        videoMixer?.start()
+        videoMixer.start()
     }
 
     // swiftlint:disable:next function_body_length

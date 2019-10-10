@@ -61,7 +61,11 @@ class ViewController: UIViewController {
 
     var isFiltered = false
 
+    var screenPortrait = false
+    var logSwitch = false
     var btnBeauty: UIButton!
+    var btnScreenOrientation: UIButton!
+    var btnLog: UIButton!
     var vBeauty: BeautySettingPanel!
     var hub: MBProgressHUD!
 
@@ -222,7 +226,13 @@ class ViewController: UIViewController {
     }
 
     private func initSession() {
+#if USE_VIDEOCAST_PREVIEW
+        let preViewContainer: UIView? = nil
+#else
+        let preViewContainer = previewView
+#endif
         session = TencentSession(
+            preViewContainer: preViewContainer,
             videoSize: getVideoSize(),
             frameRate: OptionsModel.shared.framerate,
             bitrate: OptionsModel.shared.bitrate,
@@ -230,7 +240,9 @@ class ViewController: UIViewController {
             useInterfaceOrientation: true,
             aspectMode: .fill
         )
+#if USE_VIDEOCAST_PREVIEW
         previewView.addSubview(session.previewView)
+#endif
         session.previewView.frame = previewView.bounds
         switchCameraTouch(.front)
     }
@@ -267,12 +279,27 @@ class ViewController: UIViewController {
         let startSpace: CGFloat = 12
         let centerInterVal: CGFloat = (size.width - 2 * startSpace - ICON_SIZE) / 6
         let iconY: CGFloat = size.height - ICON_SIZE / 2 - 10
+
         btnBeauty = UIButton(type: .custom)
         btnBeauty.center = CGPoint(x: startSpace + ICON_SIZE / 2 + centerInterVal * 2, y: iconY)
         btnBeauty.bounds = CGRect(x: 0, y: 0, width: ICON_SIZE, height: ICON_SIZE)
         btnBeauty.setImage(UIImage(named: "beauty"), for: .normal)
         btnBeauty.addTarget(self, action: #selector(self.clickBeauty(_:)), for: .touchUpInside)
         view.addSubview(btnBeauty)
+
+        btnScreenOrientation = UIButton(type: .custom)
+        btnScreenOrientation.center = CGPoint(x: startSpace + ICON_SIZE / 2 + centerInterVal * 4, y: iconY)
+        btnScreenOrientation.bounds = CGRect(x: 0, y: 0, width: ICON_SIZE, height: ICON_SIZE)
+        btnScreenOrientation.setImage(UIImage(named: "portrait"), for: .normal)
+        btnScreenOrientation.addTarget(self, action: #selector(self.clickScreenOrientation(_:)), for: .touchUpInside)
+        view.addSubview(btnScreenOrientation)
+
+        btnLog = UIButton(type: .custom)
+        btnLog.center = CGPoint(x: startSpace + ICON_SIZE / 2 + centerInterVal * 5, y: iconY)
+        btnLog.bounds = CGRect(x: 0, y: 0, width: ICON_SIZE, height: ICON_SIZE)
+        btnLog.setImage(UIImage(named: "log"), for: .normal)
+        btnLog.addTarget(self, action: #selector(self.clickLog(_:)), for: .touchUpInside)
+        view.addSubview(btnLog)
 
         let controlHeight = CGFloat(BeautySettingPanel.height)
         vBeauty = BeautySettingPanel(frame: CGRect(x: 0,
@@ -289,9 +316,34 @@ class ViewController: UIViewController {
         vBeauty.isHidden = false
         hideToolButtons(true)
     }
+    
+    @objc private func clickScreenOrientation(_ btn: UIButton) {
+        screenPortrait = !screenPortrait
+        
+        if screenPortrait {
+            btn.setImage(UIImage(named: "landscape"), for: .normal)
+            session.setOrientation(false)
+        } else {
+            btn.setImage(UIImage(named: "portrait"), for: .normal)
+            session.setOrientation(true)
+        }
+    }
+
+    @objc private func clickLog(_ btn: UIButton) {
+        if logSwitch {
+            btn.setImage(UIImage(named: "log"), for: .normal)
+        } else {
+            btn.setImage(UIImage(named: "log2"), for: .normal)
+        }
+        logSwitch = !logSwitch
+        session.setLogViewMargin(UIEdgeInsets(top: 120, left: 10, bottom: 60, right: 10))
+        session.showVideoDebugLog(logSwitch)
+    }
 
     private func hideToolButtons(_ bHide: Bool) {
         btnBeauty.isHidden = bHide
+        btnScreenOrientation.isHidden = bHide
+        btnLog.isHidden = bHide
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
