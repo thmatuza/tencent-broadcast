@@ -17,9 +17,11 @@ class TencentSource: ISource {
 
     private var matrix: GLKMatrix4 = GLKMatrix4Identity
 
-    private weak var output: IOutput?
+    private weak var videoOutput: IOutput?
+    private weak var audioOutput: IOutput?
 
     private var callbackSession: TencentVideoProcessCallback?
+    private var audioCallbackSession: TencentAudioProcessCallback?
 
     private var fps: Int = 0
 
@@ -27,15 +29,24 @@ class TencentSource: ISource {
 
     private var txLivePublisher: TXLivePush?
 
-    func setOutput(_ output: IOutput) {
-        self.output = output
-    }
-
     public init() {
     }
 
     deinit {
         callbackSession = nil
+        audioCallbackSession = nil
+    }
+
+    func setOutput(_ output: IOutput) {
+        assertionFailure("use setVideoOutput or setAudioOutput")
+    }
+
+    func setVideoOutput(_ output: IOutput) {
+        self.videoOutput = output
+    }
+
+    func setAudioOutput(_ output: IOutput) {
+        self.audioOutput = output
     }
 
     func getPreviewLayer(_ outAVCaptureVideoPreviewLayer: inout AVCaptureVideoPreviewLayer) {
@@ -46,12 +57,19 @@ class TencentSource: ISource {
         let config = TXLivePushConfig()
         config.videoFPS = Int32(fps)
         config.frontCamera = useFront
+        config.customModeType = CUSTOM_MODE_AUDIO_CAPTURE | CUSTOM_MODE_VIDEO_PREPROCESS
         syncSafe {
             let txLivePublisher = TXLivePush(config: config)
 
             callbackSession = .init()
             callbackSession?.source = self
             txLivePublisher?.videoProcessDelegate = callbackSession
+
+            // AudioProcessDelegate doesn't work yet
+            audioCallbackSession = .init()
+            audioCallbackSession?.source = self
+            txLivePublisher?.audioProcessDelegate = audioCallbackSession
+
             preViewContainer = UIView(frame: CGRect(x: 0, y: 0, width: 720, height: 1280))
 
             txLivePublisher?.startPreview(preViewContainer)
@@ -90,7 +108,7 @@ class TencentSource: ISource {
 
     /*! Used by Objective-C Capture Session */
     func bufferCaptured(pixelBuffer: CVPixelBuffer) {
-        guard let output = output else { return }
+        guard let output = videoOutput else { return }
 
         let md = VideoBufferMetadata(ts: .init(value: 1, timescale: Int32(fps)))
 
@@ -101,6 +119,28 @@ class TencentSource: ISource {
         pb.state = .enqueued
         output.pushBuffer(&pb, size: MemoryLayout<PixelBuffer>.size, metadata: md)
 
+    }
+
+    // AudioProcessDelegate doesn't work yet
+    func audioBufferCaptured(_ data: Data!, timeStamp: UInt64, sampleRate: Int32, channels: Int32) {
+        /*guard let output = audioOutput else { return }
+
+        let md = AudioBufferMetadata(ts: .init(value: CMTimeValue(timeStamp), timescale: Int32(1)))
+
+        md.data = (Int(sampleRate),
+                   16,
+                   channels,
+                   AudioFormatFlags(kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked),
+                   channels * 2,
+                   inNumberFrames,
+                   false,
+                   false,
+                   WeakRefISource(value: self)
+        )
+
+        data.withUnsafeBytes {
+            output.pushBuffer($0.baseAddress!, size: data.count, metadata: md)
+        }*/
     }
 }
 

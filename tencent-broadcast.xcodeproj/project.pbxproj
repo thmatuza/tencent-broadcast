@@ -19,6 +19,7 @@
 		81C0CF26234743F200A025D7 /* TencentCustomProcessFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */; };
 		81C0CF2823476FEF00A025D7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C0CF2723476FD300A025D7 /* libsqlite3.tbd */; };
 		81C0CF2C2347703A00A025D7 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C0CF2B2347702700A025D7 /* libresolv.tbd */; };
+		81C5D77E234D9CFB005B59CC /* TencentAudioProcessCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5D77D234D9CFB005B59CC /* TencentAudioProcessCallback.swift */; };
 		81D1962B2346FE7C003986A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1962A2346FE7C003986A9 /* AppDelegate.swift */; };
 		81D1962D2346FE7C003986A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1962C2346FE7C003986A9 /* SceneDelegate.swift */; };
 		81D1962F2346FE7C003986A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1962E2346FE7C003986A9 /* ViewController.swift */; };
@@ -65,6 +66,7 @@
 		81C0CF2723476FD300A025D7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		81C0CF292347701300A025D7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		81C0CF2B2347702700A025D7 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		81C5D77D234D9CFB005B59CC /* TencentAudioProcessCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentAudioProcessCallback.swift; sourceTree = "<group>"; };
 		81D196272346FE7C003986A9 /* tencent-broadcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tencent-broadcast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D1962A2346FE7C003986A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D1962C2346FE7C003986A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				81D1965E234704E4003986A9 /* TencentSessionImpl.swift */,
 				81C0CF2123472A4700A025D7 /* TencentSource.swift */,
 				81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */,
+				81C5D77D234D9CFB005B59CC /* TencentAudioProcessCallback.swift */,
 				81B35575234C66680040B26D /* TextCell.swift */,
 				81D1965A23470455003986A9 /* TextFieldCell.swift */,
 				81D1962E2346FE7C003986A9 /* ViewController.swift */,
@@ -378,6 +381,7 @@
 				81D19655234703E9003986A9 /* SelectViewController.swift in Sources */,
 				81D1962B2346FE7C003986A9 /* AppDelegate.swift in Sources */,
 				81D1964D23470332003986A9 /* BroadcastsViewController.swift in Sources */,
+				81C5D77E234D9CFB005B59CC /* TencentAudioProcessCallback.swift in Sources */,
 				81D1962D2346FE7C003986A9 /* SceneDelegate.swift in Sources */,
 				81C0CF2223472A4700A025D7 /* TencentSource.swift in Sources */,
 				81D196612347050D003986A9 /* TencentSessionDelegate.swift in Sources */,

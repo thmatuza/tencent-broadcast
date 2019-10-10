@@ -13,9 +13,6 @@ class TencentVideoProcessCallback: NSObject, TXVideoCustomProcessDelegate {
     weak var source: TencentSource?
     var filter: TencentCustomProcessFilter?
 
-    override init() {
-    }
-
     func onPreProcessTexture(_ texture: GLuint, width: CGFloat, height: CGFloat) -> GLuint {
         //Logger.debug("onPreProcessTexture \(texture), \(width), \(height)")
 

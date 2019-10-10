@@ -146,7 +146,7 @@ extension TencentSession {
             self.cameraSource?.setContinuousAutofocus(true)
             self.cameraSource?.setContinuousExposure(true)
 
-            self.cameraSource?.setOutput(aspectTransform)
+            self.cameraSource?.setVideoOutput(aspectTransform)
 
             guard let videoMixer = self.videoMixer else {
                 return Logger.debug("unexpected return") }
@@ -165,6 +165,7 @@ extension TencentSession {
             // Add mic source
             micSource = MicSource(sampleRate: Double(audioSampleRate), preferedChannelCount: audioChannelCount)
             micSource?.setOutput(audioMixer)
+            self.cameraSource?.setAudioOutput(audioMixer)
         }
 
         let epoch = Date()
