@@ -71,7 +71,7 @@ class TencentSource: ISource {
             callbackSession.source = self
             txLivePublisher?.videoProcessDelegate = callbackSession
             self.callbackSession = callbackSession
-            
+
             if !orientationLocked {
                 NotificationCenter.default.addObserver(
                     callbackSession,
@@ -110,7 +110,7 @@ class TencentSource: ISource {
         }
         return isFlash
     }
-    
+
     func setOrientation(_ portrait: Bool) {
         guard let txLivePublisher = txLivePublisher else {
             return
@@ -120,14 +120,14 @@ class TencentSource: ISource {
             if let config = txLivePublisher.config {
                 config.homeOrientation = HomeOrientation.down.rawValue
                 txLivePublisher.config = config
-                
+
                 txLivePublisher.setRenderRotation(0)
             }
         } else {
             if let config = txLivePublisher.config {
                 config.homeOrientation = HomeOrientation.right.rawValue
                 txLivePublisher.config = config
-                
+
                 txLivePublisher.setRenderRotation(90)
             }
         }
@@ -204,7 +204,7 @@ class TencentSource: ISource {
             output.pushBuffer($0.baseAddress!, size: data.count, metadata: md)
         }*/
     }
-    
+
     func reorientCamera() {
         guard let txLivePublisher = txLivePublisher else {
             return

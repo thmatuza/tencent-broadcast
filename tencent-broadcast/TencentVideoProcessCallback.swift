@@ -34,7 +34,7 @@ class TencentVideoProcessCallback: NSObject, TXVideoCustomProcessDelegate {
     func onDetectFacePoints(_ points: [Any]!) {
         Logger.debug("onDetectFacePoints \(points.count)")
     }
-    
+
     @objc func orientationChanged(notification: Notification) {
         guard let source = source, !source.orientationLocked else { return }
         DispatchQueue.global().async { [weak self] in

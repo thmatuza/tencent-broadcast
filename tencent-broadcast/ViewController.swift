@@ -316,10 +316,10 @@ class ViewController: UIViewController {
         vBeauty.isHidden = false
         hideToolButtons(true)
     }
-    
+
     @objc private func clickScreenOrientation(_ btn: UIButton) {
         screenPortrait = !screenPortrait
-        
+
         if screenPortrait {
             btn.setImage(UIImage(named: "landscape"), for: .normal)
             session.setOrientation(false)
