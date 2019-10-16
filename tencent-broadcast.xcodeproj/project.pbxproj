@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		70CE30128E1665F45BAB46E1 /* Pods_tencent_broadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AFAFFFEB60F582F96C67F7 /* Pods_tencent_broadcast.framework */; };
+		8199CC49235710E7006E568B /* FilterResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8199CC47235710E7006E568B /* FilterResource.bundle */; };
+		8199CC4A235710E7006E568B /* goodluck.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8199CC48235710E7006E568B /* goodluck.mp4 */; };
 		81B3556E234C4BAD0040B26D /* BeautySettingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3556D234C4BAD0040B26D /* BeautySettingPanel.swift */; };
 		81B35570234C4C900040B26D /* BeautySettingPanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3556F234C4C900040B26D /* BeautySettingPanelDelegate.swift */; };
 		81B35572234C4D860040B26D /* BeautyLoadPituDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */; };
@@ -54,6 +56,8 @@
 		2189A93F03AC4A28C71BE4BB /* Pods-tencent-broadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tencent-broadcast.debug.xcconfig"; path = "Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		7DF982D6A66D38E83DD33977 /* Pods-tencent-broadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tencent-broadcast.release.xcconfig"; path = "Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast.release.xcconfig"; sourceTree = "<group>"; };
 		8152998B234B003600499C9D /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = SDK/GPUImage.framework; sourceTree = "<group>"; };
+		8199CC47235710E7006E568B /* FilterResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FilterResource.bundle; sourceTree = "<group>"; };
+		8199CC48235710E7006E568B /* goodluck.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = goodluck.mp4; sourceTree = "<group>"; };
 		81B3556D234C4BAD0040B26D /* BeautySettingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautySettingPanel.swift; sourceTree = "<group>"; };
 		81B3556F234C4C900040B26D /* BeautySettingPanelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautySettingPanelDelegate.swift; sourceTree = "<group>"; };
 		81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyLoadPituDelegate.swift; sourceTree = "<group>"; };
@@ -146,15 +150,14 @@
 		81D196292346FE7C003986A9 /* tencent-broadcast */ = {
 			isa = PBXGroup;
 			children = (
+				8199CC47235710E7006E568B /* FilterResource.bundle */,
+				8199CC48235710E7006E568B /* goodluck.mp4 */,
+				81D196382346FE7F003986A9 /* Info.plist */,
 				81D1962A2346FE7C003986A9 /* AppDelegate.swift */,
-				81D196332346FE7F003986A9 /* Assets.xcassets */,
 				81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */,
 				81B3556D234C4BAD0040B26D /* BeautySettingPanel.swift */,
 				81B3556F234C4C900040B26D /* BeautySettingPanelDelegate.swift */,
 				81D1964C23470332003986A9 /* BroadcastsViewController.swift */,
-				81D196382346FE7F003986A9 /* Info.plist */,
-				81D196352346FE7F003986A9 /* LaunchScreen.storyboard */,
-				81D196302346FE7C003986A9 /* Main.storyboard */,
 				81D1964E23470376003986A9 /* OptionsModel.swift */,
 				81D196502347039C003986A9 /* OptionsUtil.swift */,
 				81D19652234703C6003986A9 /* OptionsViewController.swift */,
@@ -163,16 +166,19 @@
 				81D19654234703E9003986A9 /* SelectViewController.swift */,
 				81D196562347040D003986A9 /* ServerModel.swift */,
 				81D196582347042F003986A9 /* ServerViewController.swift */,
+				81C5D77D234D9CFB005B59CC /* TencentAudioProcessCallback.swift */,
 				81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */,
 				81D1965C23470499003986A9 /* TencentSession.swift */,
 				81D196602347050D003986A9 /* TencentSessionDelegate.swift */,
 				81D1965E234704E4003986A9 /* TencentSessionImpl.swift */,
 				81C0CF2123472A4700A025D7 /* TencentSource.swift */,
 				81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */,
-				81C5D77D234D9CFB005B59CC /* TencentAudioProcessCallback.swift */,
 				81B35575234C66680040B26D /* TextCell.swift */,
 				81D1965A23470455003986A9 /* TextFieldCell.swift */,
 				81D1962E2346FE7C003986A9 /* ViewController.swift */,
+				81D196332346FE7F003986A9 /* Assets.xcassets */,
+				81D196352346FE7F003986A9 /* LaunchScreen.storyboard */,
+				81D196302346FE7C003986A9 /* Main.storyboard */,
 			);
 			path = "tencent-broadcast";
 			sourceTree = "<group>";
@@ -286,6 +292,8 @@
 				81D196372346FE7F003986A9 /* LaunchScreen.storyboard in Resources */,
 				81D196342346FE7F003986A9 /* Assets.xcassets in Resources */,
 				81D196322346FE7C003986A9 /* Main.storyboard in Resources */,
+				8199CC49235710E7006E568B /* FilterResource.bundle in Resources */,
+				8199CC4A235710E7006E568B /* goodluck.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

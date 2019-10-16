@@ -493,7 +493,7 @@ class BeautySettingPanel: UIView {
 
         let path = Bundle.main.path(forResource: "FilterResource", ofType: "bundle")
         if let path = path, index != FilterType.none.rawValue {
-            let path = URL(fileURLWithPath: path).appendingPathComponent(lookupFileName).absoluteString
+            let path = URL(fileURLWithPath: path).appendingPathComponent(lookupFileName).path
             let image = UIImage(contentsOfFile: path)
             return image
         }
