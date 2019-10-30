@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  tencent-broadcast
+
+  Created by 松澤 友弘 on 2019/10/30.
+  Copyright © 2019 CyberAgent. All rights reserved.
+*/
+"美颜" = "Beauty";
+"滤镜" = "Filter";
+"动效" = "Motion";
+"抠背" = "Background subtraction";
+"绿幕" = "Green screen";
+"清除" = "Clear";
+"标准" = "Normal";
+"樱红" = "Cherry red";
+"云裳" = "Elegance";
+"纯真" = "Innocent";
+"白兰" = "White orchid";
+"元气" = "Vitality";
+"超脱" = "Super off";
+"香氛" = "Fragrance";
+"美白" = "White";
+"浪漫" = "Romantic";
+"清新" = "Fresh";
+"唯美" = "Beautiful";
+"粉嫩" = "Pink";
+"怀旧" = "Nostalgic";
+"蓝调" = "Blues";
+"清亮" = "Clear";
+"日系" = "Japanese";
+"美颜(光滑)" = "Beauty(Smooth)";
+"美颜(自然)" = "Beauty(Nature)";
+"美颜(P图)" = "Beauty(Pitu)";
+"美白" = "White";
+"红润" = "Ruddy";
+"大眼" = "Eye";
+"瘦脸" = "Face scale";
+"V脸" = "V face";
+"下巴" = "Chin";
+"短脸" = "Short face";
+"瘦鼻" = "Nose";
+"Boom" = "Boom";
+"霓虹鼠" = "Neon mouse";
+"眼镜狗" = "Dog glasses";
+"疯狂打call" = "Crazy call";
+"Q星座" = "Q constellation";
+"彩色丝带" = "Colored ribbon";
+"刘海发带" = "Liu Hai hair ribon";
+"彩虹云" = "Rainbow";
+"紫色小猫" = "Purplecat";
+"花仙子" = "Flower Fairy";
+"小公举" = "Baby agetest";
+"AI抠背" = "AI Background subtraction";
