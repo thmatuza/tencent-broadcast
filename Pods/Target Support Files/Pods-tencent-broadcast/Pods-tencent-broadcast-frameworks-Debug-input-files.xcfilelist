@@ -1,6 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-tencent-broadcast/Pods-tencent-broadcast-frameworks.sh
-${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
-${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework
-${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
-${BUILT_PRODUCTS_DIR}/VideoCast/VideoCast.framework
-${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework
