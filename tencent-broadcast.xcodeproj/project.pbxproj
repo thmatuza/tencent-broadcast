@@ -16,7 +16,6 @@
 		81B35572234C4D860040B26D /* BeautyLoadPituDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */; };
 		81B35574234C60850040B26D /* PituMotionAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35573234C60850040B26D /* PituMotionAddress.swift */; };
 		81B35576234C66680040B26D /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B35575234C66680040B26D /* TextCell.swift */; };
-		81C0CF1E2347250B00A025D7 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C0CF1D2347250B00A025D7 /* TXLiteAVSDK_Professional.framework */; };
 		81C0CF2223472A4700A025D7 /* TencentSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF2123472A4700A025D7 /* TencentSource.swift */; };
 		81C0CF242347354700A025D7 /* TencentVideoProcessCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */; };
 		81C0CF26234743F200A025D7 /* TencentCustomProcessFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */; };
@@ -66,7 +65,6 @@
 		81B35571234C4D860040B26D /* BeautyLoadPituDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyLoadPituDelegate.swift; sourceTree = "<group>"; };
 		81B35573234C60850040B26D /* PituMotionAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PituMotionAddress.swift; sourceTree = "<group>"; };
 		81B35575234C66680040B26D /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		81C0CF1D2347250B00A025D7 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		81C0CF2123472A4700A025D7 /* TencentSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentSource.swift; sourceTree = "<group>"; };
 		81C0CF232347354700A025D7 /* TencentVideoProcessCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentVideoProcessCallback.swift; sourceTree = "<group>"; };
 		81C0CF25234743F200A025D7 /* TencentCustomProcessFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TencentCustomProcessFilter.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				81C0CF2823476FEF00A025D7 /* libsqlite3.tbd in Frameworks */,
 				70CE30128E1665F45BAB46E1 /* Pods_tencent_broadcast.framework in Frameworks */,
 				81C0CF2C2347703A00A025D7 /* libresolv.tbd in Frameworks */,
-				81C0CF1E2347250B00A025D7 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +200,6 @@
 				81C0CF2B2347702700A025D7 /* libresolv.tbd */,
 				81C0CF292347701300A025D7 /* libc++.tbd */,
 				81C0CF2723476FD300A025D7 /* libsqlite3.tbd */,
-				81C0CF1D2347250B00A025D7 /* TXLiteAVSDK_Professional.framework */,
 				D9AFAFFFEB60F582F96C67F7 /* Pods_tencent_broadcast.framework */,
 			);
 			name = Frameworks;

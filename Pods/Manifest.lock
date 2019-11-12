@@ -17,6 +17,7 @@ PODS:
   - GPUImage (0.1.7)
   - MBProgressHUD (1.1.0)
   - SwiftLint (0.35.0)
+  - TXLiteAVSDK_Professional (6.7.7758)
   - VideoCast (0.1.2)
   - ZipArchive (1.4.0)
 
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - GPUImage (from `https://github.com/BradLarson/GPUImage.git`)
   - MBProgressHUD (~> 1.1.0)
   - SwiftLint
+  - TXLiteAVSDK_Professional
   - VideoCast (from `https://github.com/cats-oss/VideoCast-Swift.git`)
   - ZipArchive
 
@@ -33,6 +35,7 @@ SPEC REPOS:
     - AFNetworking
     - MBProgressHUD
     - SwiftLint
+    - TXLiteAVSDK_Professional
     - ZipArchive
 
 EXTERNAL SOURCES:
@@ -54,9 +57,10 @@ SPEC CHECKSUMS:
   GPUImage: bd7e201b9aa91e85f401ed7a6d9867a07a404693
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+  TXLiteAVSDK_Professional: c737fed21a9a4e9ac7a9dad62bcaf67476854d96
   VideoCast: d02eedea17092bae3cd7384b4078274010ceb3bd
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 5dac132c24365d53bfcaa2142add5eeae15e23b8
+PODFILE CHECKSUM: 3dc216d6730c0f2c9b86225f97443faa2ca295a7
 
 COCOAPODS: 1.8.3
